@@ -19,7 +19,7 @@
             overflow-y: scroll; 
         }
 
-        /* Adjusted Compact Navigation Heights & Spacing */
+        /* Compact Navigation Heights & Spacing */
         header {
             height: 135px;
         }
@@ -61,16 +61,16 @@
             color: #9ca3af;
         }
 
-        /* 1. Theme Table Vocab Highlight (Retained) */
+        /* Theme Table Vocab Highlight */
         .vocab-hl {
             color: #ea580c; 
             font-weight: 700;
         }
 
-        /* 2. REAL Highlighter Effect ONLY for Text 1 & Text 2 */
+        /* Real Highlighter Marker Effect ONLY for Text 1 & Text 2 */
         .text-vocab-hl {
-            background-color: #fef08a; /* Bright fluorescent marker yellow */
-            color: #9a3412; /* Deep contrasting rust text */
+            background-color: #fef08a; /* Fluorescent marker yellow */
+            color: #9a3412; 
             font-weight: 700;
             padding: 0.08em 0.35em;
             border-radius: 6px;
@@ -142,7 +142,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Navigation Button Styles (Single-Row Sizing) */
+        /* Single-Row Navigation Button Styles */
         .nav-btn {
             transition: all 0.2s ease;
             white-space: nowrap;
@@ -231,7 +231,7 @@
 
     <main class="px-10 max-w-[1500px] mx-auto">
 
-        <!-- 1. LESSON OVERVIEW (Renamed from Title & Agenda) -->
+        <!-- 1. LESSON OVERVIEW -->
         <section id="overview" class="page-section active pb-16">
             <div class="bg-white rounded-[32px] p-12 shadow-xl border-t-[12px] border-[#ea580c]">
                 <div class="flex justify-between items-center mb-10">
@@ -388,9 +388,9 @@
                     </div>
                 </div>
 
-                <!-- Drill 5 & 6 -->
+                <!-- Drill 5: Neutral Tone (Separated & Strictly Formatted) -->
                 <div class="bg-white p-10 rounded-[32px] shadow-xl border-t-[10px] border-[#c2410c]">
-                    <h3 class="text-4xl font-extrabold text-[#9a3412] mb-6 border-b-2 border-orange-100 pb-4">5 Neutral tone & 6 Disyllabic words (Pg 20)</h3>
+                    <h3 class="text-4xl font-extrabold text-[#9a3412] mb-6 border-b-2 border-orange-100 pb-4">5 Neutral tone (Pg 20)</h3>
                     
                     <div class="bg-[#fff7ed] p-6 rounded-2xl border-l-[8px] border-[#ea580c] mb-8 shadow-sm">
                         <p class="text-2xl text-gray-800 leading-relaxed">
@@ -403,32 +403,52 @@
                         </ul>
                     </div>
 
-                    <p class="text-3xl font-bold text-[#c2410c] mb-4">Neutral Tone Examples:</p>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-3xl mb-10">
-                        <div class="pronunciation-box">bàba</div>
-                        <div class="pronunciation-box">māma</div>
-                        <div class="pronunciation-box">gēge</div>
-                        <div class="pronunciation-box">dìdi</div>
-                        <div class="pronunciation-box">nǐmen</div>
-                        <div class="pronunciation-box">wǒmen</div>
-                        <div class="pronunciation-box">tāmen</div>
-                        <div class="pronunciation-box highlighted">hǎo ma?</div>
-                        <div class="pronunciation-box highlighted">Nǐ ne?</div>
-                        <div class="pronunciation-box highlighted col-span-2">Nǐ nán péngyou ne?</div>
-                    </div>
-
-                    <p class="text-3xl font-bold text-[#c2410c] mb-4">Disyllabic Words Practice:</p>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-3xl">
-                        <div class="pronunciation-box">yǐnliào <span class="eng-sub">(drinks)</span></div>
-                        <div class="pronunciation-box">kělè <span class="eng-sub">(coke)</span></div>
-                        <div class="pronunciation-box">hànbǎo <span class="eng-sub">(hamburger)</span></div>
-                        <div class="pronunciation-box">píngguǒ <span class="eng-sub">(apple)</span></div>
-                        <div class="pronunciation-box">yéye <span class="eng-sub">(grandpa)</span></div>
-                        <div class="pronunciation-box">mèimei <span class="eng-sub">(younger sister)</span></div>
-                        <div class="pronunciation-box">fāyīn <span class="eng-sub">(pronunciation)</span></div>
-                        <div class="pronunciation-box">hēibǎn <span class="eng-sub">(blackboard)</span></div>
+                    <!-- 3 Strictly Formatted Rows -->
+                    <div class="space-y-4 text-3xl">
+                        <!-- Row 1: 4 Kinship words -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="pronunciation-box">bàba</div>
+                            <div class="pronunciation-box">māma</div>
+                            <div class="pronunciation-box">gēge</div>
+                            <div class="pronunciation-box">dìdi</div>
+                        </div>
+                        <!-- Row 2: 3 Plural pronouns -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="pronunciation-box">nǐmen</div>
+                            <div class="pronunciation-box">wǒmen</div>
+                            <div class="pronunciation-box">tāmen</div>
+                        </div>
+                        <!-- Row 3: Starts with "hǎo ma?" -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="pronunciation-box highlighted">hǎo ma?</div>
+                            <div class="pronunciation-box highlighted">Nǐ ne?</div>
+                            <div class="pronunciation-box highlighted">Nǐ nán péngyou ne?</div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Drill 6: Practice on Disyllabic Words (Separated & Two-Column Layout) -->
+                <div class="bg-white p-10 rounded-[32px] shadow-xl border-t-[10px] border-[#ea580c]">
+                    <h3 class="text-4xl font-extrabold text-[#9a3412] mb-6 border-b-2 border-orange-100 pb-4">6 Practice on disyllabic words (Pg 20)</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-3xl">
+                        <!-- Left Column (First Line of items from textbook) -->
+                        <div class="space-y-4">
+                            <div class="pronunciation-box">yǐnliào <span class="eng-sub">(drinks)</span></div>
+                            <div class="pronunciation-box">kělè <span class="eng-sub">(coke)</span></div>
+                            <div class="pronunciation-box">hànbǎo <span class="eng-sub">(hamburger)</span></div>
+                            <div class="pronunciation-box">píngguǒ <span class="eng-sub">(apple)</span></div>
+                        </div>
+                        <!-- Right Column (Second Line of items from textbook) -->
+                        <div class="space-y-4">
+                            <div class="pronunciation-box">yéye <span class="eng-sub">(grandpa)</span></div>
+                            <div class="pronunciation-box">mèimei <span class="eng-sub">(younger sister)</span></div>
+                            <div class="pronunciation-box">fāyīn <span class="eng-sub">(pronunciation)</span></div>
+                            <div class="pronunciation-box">hēibǎn <span class="eng-sub">(blackboard)</span></div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -493,7 +513,7 @@
                             <td class="p-6 text-gray-700">they, them <span class="inline-block text-4xl ml-2 bg-orange-100 p-1 rounded-xl">👨‍👩‍👧‍👦</span><br><span class="text-xl text-gray-500 italic">(he, him / plural suffix)</span></td>
                             <td class="p-6 text-gray-700">
                                 <div class="mb-2"><span class="vocab-hl">tāmen</span> dōu</div>
-                                <div class="text-[#ea580c] font-bold"><span class="underline decoration-2">Tāmen</span> dōu shì wǒ de péngyou.</div>
+                                <div class="text-[#ea580c] font-bold"><span class="underline decoration-2">Tāmen</span> dōu qù jiàoshì.</div>
                             </td>
                         </tr>
                         <tr class="bg-[#fff8f6] hover:bg-orange-100 transition-colors">
@@ -529,7 +549,7 @@
                             <td class="p-6 text-gray-700">friend <span class="inline-block text-4xl ml-2 bg-orange-100 p-1 rounded-xl">🧑</span></td>
                             <td class="p-6 text-gray-700">
                                 <div class="mb-2">hǎo <span class="vocab-hl">péngyou</span></div>
-                                <div class="text-[#ea580c] font-bold">Lìbō shì Lù Yǔpíng de <span class="underline decoration-2">péngyou</span>.</div>
+                                <div class="text-[#ea580c] font-bold">Nǐ nán <span class="underline decoration-2">péngyou</span> zài nǎr?</div>
                             </td>
                         </tr>
                         <tr class="bg-[#fff8f6] hover:bg-orange-100 transition-colors">
@@ -545,31 +565,30 @@
                 </table>
             </div>
 
-            <!-- Supplementary Note Box -->
+            <!-- Supplementary Note Box (Simplified Explanations) -->
             <div class="mb-12 bg-gradient-to-r from-orange-100 to-amber-50 p-8 rounded-2xl border-l-[10px] border-[#ea580c] shadow-md">
                 <h3 class="text-3xl font-extrabold text-[#9a3412] mb-3">💡 Extra Vocabulary Note: Romantic Partner vs. Male/Female Friend</h3>
                 <div class="grid grid-cols-2 gap-6 text-2xl text-gray-800">
                     <div class="bg-white p-5 rounded-xl border border-orange-200">
                         <p class="font-bold text-[#c2410c] text-3xl mb-1">nán péngyou / nǚ péngyou</p>
-                        <p>Boyfriend / Girlfriend (Romantic relationship)</p>
+                        <p>Boyfriend / Girlfriend <span class="text-gray-500 font-semibold block">(Romantic relationship / Dating)</span></p>
                     </div>
                     <div class="bg-white p-5 rounded-xl border border-orange-200">
                         <p class="font-bold text-[#c2410c] text-3xl mb-1">nánxìng péngyou / nǚxìng péngyou</p>
-                        <p>Male friend / Female friend (Platonic friend who is male/female)</p>
+                        <p>Male friend / Female friend <span class="text-gray-500 font-semibold block">(Just a friend / Not dating)</span></p>
                     </div>
                 </div>
             </div>
 
-            <!-- Grammar Section -->
+            <!-- Grammar Section (Without Generic 'Grammar Focus' Title) -->
             <div class="p-10 bg-white rounded-[32px] shadow-xl border-4 border-[#ffedd5]">
-                <h3 class="text-4xl font-extrabold text-[#9a3412] mb-8 border-b-2 border-orange-100 pb-3">Grammar Focus</h3>
                 
                 <div class="bg-gradient-to-br from-orange-50 to-white p-8 rounded-2xl border border-orange-200 shadow-md mb-8 text-center">
-                    <p class="text-3xl font-bold text-gray-500 mb-6 uppercase tracking-widest">1. Sentence with Adjectival Predicate</p>
+                    <h3 class="text-4xl font-extrabold text-[#9a3412] mb-6">Sentence with Adjectival Predicate</h3>
                     <div class="flex items-center justify-center space-x-4">
                         <span class="bg-[#ffedd5] text-[#9a3412] px-6 py-3 rounded-xl font-bold text-3xl shadow-sm border border-orange-300">Subject</span>
                         <span class="text-4xl text-[#ea580c]">+</span>
-                        <span class="bg-[#ea580c] text-white px-5 py-3 rounded-xl font-bold text-2xl md:text-3xl shadow-sm border border-[#c2410c] whitespace-nowrap">adv (hěn / yě / dōu / bù)</span>
+                        <span class="bg-[#ea580c] text-white px-5 py-3 rounded-xl font-bold text-2xl md:text-3xl shadow-sm border border-[#c2410c] whitespace-nowrap">adv (yě / dōu / bù / hěn)</span>
                         <span class="text-4xl text-[#ea580c]">+</span>
                         <span class="bg-[#ffedd5] text-[#9a3412] px-6 py-3 rounded-xl font-bold text-3xl shadow-sm border border-orange-300">Adjective</span>
                     </div>
@@ -593,21 +612,26 @@
                     </div>
                 </div>
 
+                <!-- Bolder Highlights in Grammar Explanations -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                    <div class="bg-[#fff7ed] p-6 rounded-2xl border border-orange-200">
+                    <div class="bg-[#fff7ed] p-6 rounded-2xl border-2 border-orange-200">
                         <h4 class="text-3xl font-bold text-[#9a3412] mb-3">📌 Enumeration Comma</h4>
-                        <p class="text-2xl text-gray-700 leading-relaxed">Used strictly to separate items in a list (similar to list commas in English).</p>
-                        <p class="text-3xl font-bold text-[#c2410c] mt-3">Example: Nǐ bàba、māma hǎo ma?</p>
+                        <p class="text-2xl text-gray-700 leading-relaxed">
+                            Used <b class="text-[#c2410c]">strictly</b> to separate <b class="text-[#ea580c]">items in a list</b> (similar to commas in English, but only connects related words/names).
+                        </p>
+                        <p class="text-3xl font-bold text-[#c2410c] mt-3">Example: Nǐ bàba<b class="text-[#ea580c] text-4xl">、</b>māma hǎo ma?</p>
                     </div>
-                    <div class="bg-[#fff7ed] p-6 rounded-2xl border border-orange-200">
+                    <div class="bg-[#fff7ed] p-6 rounded-2xl border-2 border-orange-200">
                         <h4 class="text-3xl font-bold text-[#9a3412] mb-3">👥 Plural Marker "men"</h4>
-                        <p class="text-2xl text-gray-700 leading-relaxed">ONLY used for human pronouns or person-related nouns (wǒmen, nǐmen, tāmen). Never used for objects or animals!</p>
+                        <p class="text-2xl text-gray-700 leading-relaxed">
+                            <b class="text-[#c2410c]">ONLY</b> used for <b class="text-[#ea580c]">human pronouns</b> or <b class="text-[#ea580c]">person-related nouns</b> (<em>wǒmen, nǐmen, tāmen</em>). <b class="text-[#c2410c]">Never</b> used for objects or animals!
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 4. TEXT 1 (With Authentic Highlighter Effect) -->
+        <!-- 4. TEXT 1 (Shortened Notice & Authentic Highlighter) -->
         <section id="text-1" class="page-section pb-16">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="text-5xl font-extrabold text-[#9a3412]">Text 1</h2>
@@ -615,7 +639,7 @@
             </div>
             
             <p class="text-[#c2410c] mb-8 font-bold text-2xl bg-orange-100 py-3 px-6 rounded-xl border border-[#ffedd5] inline-block">
-                Click any line below to expand its Pinyin. Notice how new vocabulary is highlighted!
+                Click any line below to expand its Pinyin.
             </p>
 
             <div class="space-y-8">
@@ -688,7 +712,7 @@
                 <span class="bg-[#ffedd5] text-[#9a3412] px-6 py-3 rounded-full text-2xl font-bold shadow-sm">Pg 17-18</span>
             </div>
 
-            <!-- Vocabulary Table (Diversified Examples + Orange Sentences) -->
+            <!-- Vocabulary Table (Diversified Examples + Orange Sentences + Tone Corrected) -->
             <div class="bg-white rounded-[32px] shadow-xl overflow-hidden mb-12 border-4 border-[#ffedd5]">
                 <table class="w-full text-left border-collapse">
                     <thead>
@@ -724,7 +748,7 @@
                             <td class="p-6 text-gray-700">coffee <span class="inline-block text-4xl ml-2 bg-orange-100 p-1 rounded-xl">☕</span></td>
                             <td class="p-6 text-gray-700">
                                 <div class="mb-2">hē <span class="vocab-hl">kāfēi</span></div>
-                                <div class="text-[#ea580c] font-bold">Wǒmen dōu bù yào <span class="underline decoration-2">kāfēi</span>.</div>
+                                <div class="text-[#ea580c] font-bold">Wǒmen dōu <span class="underline decoration-2">bú yào</span> <span class="underline decoration-2">kāfēi</span>.</div>
                             </td>
                         </tr>
                         <tr class="bg-[#fff8f6] hover:bg-orange-100 transition-colors">
@@ -767,12 +791,11 @@
                 </table>
             </div>
 
-            <!-- Grammar Section -->
+            <!-- Grammar Section (Direct Title: Expressing Want & Answering "yào...ma?") -->
             <div class="p-10 bg-white rounded-[32px] shadow-xl border-4 border-[#ffedd5] mb-12">
-                <h3 class="text-4xl font-extrabold text-[#9a3412] mb-8 border-b-2 border-orange-100 pb-3">Grammar Focus</h3>
 
                 <div class="bg-gradient-to-br from-orange-50 to-white p-8 rounded-2xl border border-orange-200 shadow-md mb-8">
-                    <p class="text-3xl font-bold text-[#c2410c] mb-6 text-center">2. Expressing Want & Answering "yào...ma?" Questions</p>
+                    <h3 class="text-4xl font-extrabold text-[#9a3412] mb-6 text-center">Expressing Want & Answering "yào...ma?"</h3>
                     
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                         <div class="bg-white p-6 rounded-xl border border-orange-200 shadow-sm flex flex-col justify-center">
@@ -806,7 +829,6 @@
                         <table class="w-full text-center border-collapse text-2xl font-bold">
                             <thead>
                                 <tr>
-                                    <!-- Each element has distinct vivid header color -->
                                     <th class="p-4 bg-blue-600 text-white border-r border-blue-500">Subject <span class="text-lg block font-normal text-blue-100">(siapa)</span></th>
                                     <th class="p-4 bg-purple-600 text-white border-r border-purple-500">Time Word <span class="text-lg block font-normal text-purple-100">(bila)</span></th>
                                     <th class="p-4 bg-amber-600 text-white border-r border-amber-500">Adverb <span class="text-lg block font-normal text-amber-100">(adv)</span></th>
@@ -815,7 +837,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- Row 1: Action Sentence -->
                                 <tr class="border-b border-gray-200">
                                     <td class="p-5 bg-blue-50 text-blue-900 border-r border-blue-200">wǒ / nǐ / tā</td>
                                     <td class="p-5 bg-purple-50 text-purple-900 border-r border-purple-200">jīntiān / míngtiān</td>
@@ -823,7 +844,6 @@
                                     <td class="p-5 bg-emerald-50 text-emerald-900 border-r border-emerald-200">qù / chī / hē / yào</td>
                                     <td class="p-5 bg-rose-50 text-rose-900">kāfēi / kělè</td>
                                 </tr>
-                                <!-- Row 2: Adjectival Predicate Sentence -->
                                 <tr>
                                     <td class="p-5 bg-blue-100/70 text-blue-900 border-r border-blue-200">wǒmen / tāmen</td>
                                     <td class="p-5 bg-purple-100/70 text-purple-900 border-r border-purple-200">zuótiān</td>
@@ -838,7 +858,7 @@
             </div>
         </section>
 
-        <!-- 6. TEXT 2 (With Authentic Highlighter Effect) -->
+        <!-- 6. TEXT 2 (Shortened Notice & Authentic Highlighter) -->
         <section id="text-2" class="page-section pb-16">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="text-5xl font-extrabold text-[#9a3412]">Text 2</h2>
@@ -846,7 +866,7 @@
             </div>
             
             <p class="text-[#c2410c] mb-8 font-bold text-2xl bg-orange-100 py-3 px-6 rounded-xl border border-[#ffedd5] inline-block">
-                Click any line below to expand its Pinyin. Notice how new vocabulary is highlighted!
+                Click any line below to expand its Pinyin.
             </p>
 
             <div class="space-y-8">
@@ -900,7 +920,7 @@
             </div>
         </section>
 
-        <!-- 7. EXERCISES (Cleaned Subheadings Without (yī)/(èr)) -->
+        <!-- 7. EXERCISES (Clean Subheadings) -->
         <section id="exercises" class="page-section pb-16">
             <div class="flex justify-between items-center mb-10">
                 <h2 class="text-6xl font-extrabold text-[#9a3412]">Conversation Practice</h2>
@@ -908,7 +928,7 @@
             </div>
 
             <div class="space-y-12">
-                <!-- Exercise Part 1: Greetings (Clean Title) -->
+                <!-- Greetings -->
                 <div class="bg-white p-10 rounded-[32px] shadow-xl border-t-[10px] border-[#ea580c]">
                     <div class="flex justify-between items-center mb-6 border-b-2 border-orange-100 pb-4">
                         <h3 class="text-4xl font-extrabold text-[#9a3412]">Greetings</h3>
@@ -918,7 +938,6 @@
                     <p class="text-2xl text-gray-600 mb-6 font-bold block">Complete the following dialogues based on the English prompts.</p>
                     
                     <div class="space-y-8">
-                        <!-- Dialogue (1) -->
                         <div class="bg-orange-50 p-8 rounded-2xl border border-orange-200 shadow-sm">
                             <p class="text-gray-500 text-2xl mb-4 font-bold">(1)</p>
                             
@@ -949,7 +968,6 @@
                             </div>
                         </div>
 
-                        <!-- Dialogue (2) -->
                         <div class="bg-orange-50 p-8 rounded-2xl border border-orange-200 shadow-sm">
                             <p class="text-gray-500 text-2xl mb-4 font-bold">(2)</p>
                             
@@ -980,7 +998,6 @@
                             </div>
                         </div>
 
-                        <!-- Dialogue (3) -->
                         <div class="bg-orange-50 p-8 rounded-2xl border border-orange-200 shadow-sm">
                             <p class="text-gray-500 text-2xl mb-4 font-bold">(3)</p>
                             
@@ -1013,18 +1030,16 @@
                     </div>
                 </div>
 
-                <!-- Exercise Part 2: Asking what someone wants (Clean Title) -->
+                <!-- Asking what someone wants -->
                 <div class="bg-white p-10 rounded-[32px] shadow-xl border-t-[10px] border-[#c2410c]">
                     <div class="flex justify-between items-center mb-6 border-b-2 border-orange-100 pb-4">
                         <h3 class="text-4xl font-extrabold text-[#9a3412]">Asking what someone wants</h3>
                         <span class="bg-[#fff7ed] text-[#ea580c] px-4 py-2 rounded-xl text-xl font-bold border border-orange-200">Pg 21</span>
                     </div>
 
-                    <!-- 1. Complete dialogues -->
                     <div class="mb-10">
                         <p class="text-3xl font-extrabold text-[#713f12] mb-6">1. Complete the following dialogues (Pg 21)</p>
                         <div class="space-y-8">
-                            <!-- Dialogue (1) -->
                             <div class="bg-orange-50 p-8 rounded-2xl border border-orange-200 shadow-sm">
                                 <p class="text-gray-500 text-2xl mb-4 font-bold">(1)</p>
                                 <div class="flex items-start gap-4 mb-3">
@@ -1059,7 +1074,6 @@
                                 </div>
                             </div>
 
-                            <!-- Dialogue (2) -->
                             <div class="bg-orange-50 p-8 rounded-2xl border border-orange-200 shadow-sm">
                                 <p class="text-gray-500 text-2xl mb-4 font-bold">(2)</p>
                                 <div class="flex items-start gap-4 mb-3">
@@ -1098,7 +1112,6 @@
                         </div>
                     </div>
 
-                    <!-- 2. Make dialogues based on pictures -->
                     <div>
                         <p class="text-3xl font-extrabold text-[#713f12] mb-6">2. Make dialogues based on the pictures (Pg 21)</p>
                         
@@ -1163,39 +1176,33 @@
                 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
                     
-                    <!-- Left Column: Key Sentences from Pg 20 (Interactive Reveal) -->
+                    <!-- Left Column: Key Sentences from Pg 20 -->
                     <div class="bg-white/10 p-8 rounded-3xl border border-white/30 shadow-lg">
                         <h3 class="text-4xl font-extrabold mb-8 text-[#ffedd5] text-center border-b-2 border-white/20 pb-4">Key Sentences <span class="text-2xl font-normal">(Pg 20)</span></h3>
                         
                         <p class="text-center text-xl text-orange-200 mb-6 italic">Click on any sentence to reveal its English translation!</p>
 
                         <div class="space-y-4">
-                            <!-- Sentence 1 -->
                             <div class="key-sentence-box bg-black/30 p-4 rounded-xl border border-orange-400/30 text-center" onclick="toggleKeySentence(this)">
                                 <p class="text-3xl font-bold text-white tracking-wide">1. Tāmen dōu hěn hǎo.</p>
                                 <p class="key-eng">They are all (both) fine.</p>
                             </div>
-                            <!-- Sentence 2 -->
                             <div class="key-sentence-box bg-black/30 p-4 rounded-xl border border-orange-400/30 text-center" onclick="toggleKeySentence(this)">
                                 <p class="text-3xl font-bold text-white tracking-wide">2. Nǐ máng ma?</p>
                                 <p class="key-eng">Are you busy?</p>
                             </div>
-                            <!-- Sentence 3 -->
                             <div class="key-sentence-box bg-black/30 p-4 rounded-xl border border-orange-400/30 text-center" onclick="toggleKeySentence(this)">
                                 <p class="text-3xl font-bold text-white tracking-wide">3. Wǒ bù máng.</p>
                                 <p class="key-eng">I'm not busy.</p>
                             </div>
-                            <!-- Sentence 4 -->
                             <div class="key-sentence-box bg-black/30 p-4 rounded-xl border border-orange-400/30 text-center" onclick="toggleKeySentence(this)">
                                 <p class="text-3xl font-bold text-white tracking-wide">4. Nǐ yào kāfēi ma?</p>
                                 <p class="key-eng">Do you want some coffee?</p>
                             </div>
-                            <!-- Sentence 5 -->
                             <div class="key-sentence-box bg-black/30 p-4 rounded-xl border border-orange-400/30 text-center" onclick="toggleKeySentence(this)">
                                 <p class="text-3xl font-bold text-white tracking-wide">5. Wǒ yào kāfēi.</p>
                                 <p class="key-eng">I want coffee.</p>
                             </div>
-                            <!-- Sentence 6 -->
                             <div class="key-sentence-box bg-black/30 p-4 rounded-xl border border-orange-400/30 text-center" onclick="toggleKeySentence(this)">
                                 <p class="text-3xl font-bold text-white tracking-wide">6. Wǒmen dōu hē kāfēi.</p>
                                 <p class="key-eng">We all drink coffee.</p>
@@ -1212,10 +1219,10 @@
                             <div class="bg-black/30 p-5 rounded-2xl border border-orange-400/30">
                                 <p class="text-3xl font-extrabold text-[#fed7aa] mb-2">🧱 Adjectival Predicate (S + adv + A)</p>
                                 <p class="text-2xl text-white font-bold">Wǒ bù máng. / Tāmen dōu hěn hǎo.</p>
-                                <p class="text-xl text-orange-200 mt-1">Adjectives act directly as predicates! Adverbs (hěn, yě, dōu, bù) must go directly before the adjective.</p>
+                                <p class="text-xl text-orange-200 mt-1">Adjectives act directly as predicates! Adverbs (yě, dōu, bù, hěn) must go directly before the adjective.</p>
                             </div>
 
-                            <!-- 2. The Adverb "dōu" (Added) -->
+                            <!-- 2. The Adverb "dōu" -->
                             <div class="bg-black/30 p-5 rounded-2xl border border-orange-400/30">
                                 <p class="text-3xl font-extrabold text-[#fed7aa] mb-2">👥 The Adverb "dōu" (both / all)</p>
                                 <p class="text-2xl text-white font-bold">Tāmen dōu hěn hǎo. / Wǒmen dōu hē kāfēi.</p>
