@@ -28,7 +28,7 @@
             min-height: 100vh;
         }
 
-        /* Interactive Text Toggle Styles - Ample space for descenders (p, g, y, q) */
+        /* Interactive Text Toggle Styles for Texts */
         .pinyin-reveal-container {
             transition: all 0.4s ease-in-out;
             max-height: 0;
@@ -59,6 +59,52 @@
 
         .english-line.expanded {
             color: #9ca3af;
+        }
+
+        /* Exercise Blanks Styling */
+        .exercise-blank {
+            display: inline-block;
+            min-width: 240px;
+            border-bottom: 4px solid #ea580c; 
+            color: transparent; 
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            padding: 0.1rem 0.5rem;
+            margin: 0 6px;
+            font-weight: 700;
+            background-color: rgba(254, 215, 170, 0.35); 
+        }
+        .exercise-blank.revealed {
+            color: #9a3412; 
+            border-bottom-color: #9a3412;
+            background-color: #ffedd5; 
+            border-radius: 6px 6px 0 0;
+        }
+
+        /* Key Sentence Reveal for Wrap Up (Matching Lesson 3 Style) */
+        .key-sentence-box {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .key-sentence-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+            border-color: #fdba74;
+        }
+        .key-eng {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: #fed7aa; /* Bright warm orange for high readability */
+            font-size: 22px;
+            font-weight: 700;
+        }
+        .key-sentence-box.active .key-eng {
+            max-height: 100px;
+            opacity: 1;
+            margin-top: 0.6rem;
         }
 
         /* Page Section Transitions */
@@ -161,6 +207,7 @@
             <div class="flex flex-wrap justify-center gap-3 w-full">
                 <button onclick="switchTab('theme-2')" class="nav-btn px-5 py-1 rounded-xl border-2 border-transparent hover:bg-[#7c2d12] text-[#ffedd5] hover:text-white text-xl font-bold">Desires & Drinks</button>
                 <button onclick="switchTab('text-2')" class="nav-btn px-5 py-1 rounded-xl border-2 border-transparent hover:bg-[#7c2d12] text-[#ffedd5] hover:text-white text-xl font-bold">Text 2</button>
+                <button onclick="switchTab('exercises')" class="nav-btn px-5 py-1 rounded-xl border-2 border-transparent hover:bg-[#7c2d12] text-[#ffedd5] hover:text-white text-xl font-bold">Exercises</button>
                 <button onclick="switchTab('wrap-up')" class="nav-btn px-5 py-1 rounded-xl border-2 border-transparent hover:bg-[#7c2d12] text-[#ffedd5] hover:text-white text-xl font-bold">Wrap-up</button>
                 <button onclick="switchTab('break')" class="nav-btn px-5 py-1 rounded-xl border-2 border-transparent hover:bg-[#7c2d12] text-[#ffedd5] hover:text-white text-xl font-bold">Break</button>
             </div>
@@ -184,15 +231,15 @@
                     </div>
                     <div class="flex items-center space-x-6 bg-gradient-to-r from-orange-50 to-white p-8 rounded-2xl shadow-sm border border-orange-100">
                         <div class="w-16 h-16 rounded-xl bg-[#ea580c] flex items-center justify-center text-white font-bold text-3xl shrink-0 shadow-md">II</div>
-                        <p class="text-3xl font-bold text-gray-800">Greetings & Family<br><span class="text-2xl text-gray-500 font-semibold mt-1 block">Vocab 1-10, Grammar & Text 1 Focus</span></p>
+                        <p class="text-3xl font-bold text-gray-800">Greetings & Family<br><span class="text-2xl text-gray-500 font-semibold mt-1 block">Vocab 1-10, Grammar & Text 1 Focus (Pg 16)</span></p>
                     </div>
                     <div class="flex items-center space-x-6 bg-gradient-to-r from-orange-50 to-white p-8 rounded-2xl shadow-sm border border-orange-100">
                         <div class="w-16 h-16 rounded-xl bg-[#ea580c] flex items-center justify-center text-white font-bold text-3xl shrink-0 shadow-md">III</div>
-                        <p class="text-3xl font-bold text-gray-800">Desires & Drinks<br><span class="text-2xl text-gray-500 font-semibold mt-1 block">Vocab 1-7, Word Order & Text 2 Focus</span></p>
+                        <p class="text-3xl font-bold text-gray-800">Desires & Drinks<br><span class="text-2xl text-gray-500 font-semibold mt-1 block">Vocab 1-7, Word Order & Text 2 Focus (Pg 17-18)</span></p>
                     </div>
                     <div class="flex items-center space-x-6 bg-gradient-to-r from-orange-50 to-white p-8 rounded-2xl shadow-sm border border-orange-100">
                         <div class="w-16 h-16 rounded-xl bg-[#ea580c] flex items-center justify-center text-white font-bold text-3xl shrink-0 shadow-md">IV</div>
-                        <p class="text-3xl font-bold text-gray-800">Review & Wrap-up<br><span class="text-2xl text-gray-500 font-semibold mt-1 block">Summary & Break</span></p>
+                        <p class="text-3xl font-bold text-gray-800">Practice & Wrap-up<br><span class="text-2xl text-gray-500 font-semibold mt-1 block">Classroom Exercises (Pg 21) & Summary</span></p>
                     </div>
                 </div>
 
@@ -834,37 +881,351 @@
             </div>
         </section>
 
-        <!-- 7. WRAP-UP (No Xièxie!) -->
-        <section id="wrap-up" class="page-section pb-16">
-            <div class="bg-[#9a3412] rounded-[32px] p-12 shadow-xl text-white border-6 border-[#7c2d12]">
-                <h2 class="text-6xl font-extrabold mb-12 text-center tracking-wide text-[#ffedd5]">Wrap-up</h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-white/10 p-8 rounded-2xl border border-white/20 shadow-md">
-                        <h3 class="text-4xl font-extrabold mb-6 text-[#ffedd5] text-center">🧱 Key Sentence Structures</h3>
-                        <div class="bg-black/30 p-6 rounded-xl text-center space-y-3">
-                            <p class="text-3xl font-extrabold text-orange-200">Subject + adv + Adjective</p>
-                            <p class="text-2xl text-gray-200">Wǒ bù máng. / Tāmen dōu hěn hǎo.</p>
+        <!-- 7. EXERCISES -->
+        <section id="exercises" class="page-section pb-16">
+            <div class="flex justify-between items-center mb-10">
+                <h2 class="text-6xl font-extrabold text-[#9a3412]">Conversation Practice</h2>
+                <span class="bg-[#ffedd5] text-[#9a3412] px-6 py-3 rounded-full text-2xl font-bold shadow-sm">Pg 21</span>
+            </div>
+
+            <div class="space-y-12">
+                <!-- Exercise Part 1: Greetings -->
+                <div class="bg-white p-10 rounded-[32px] shadow-xl border-t-[10px] border-[#ea580c]">
+                    <div class="flex justify-between items-center mb-6 border-b-2 border-orange-100 pb-4">
+                        <h3 class="text-4xl font-extrabold text-[#9a3412]">(yī) Greetings</h3>
+                        <span class="bg-[#fff7ed] text-[#ea580c] px-4 py-2 rounded-xl text-xl font-bold border border-orange-200">Pg 21</span>
+                    </div>
+                    
+                    <p class="text-2xl text-gray-600 mb-6 font-bold block">Complete the following dialogues based on the English prompts.</p>
+                    
+                    <div class="space-y-8">
+                        <!-- Dialogue (1) -->
+                        <div class="bg-orange-50 p-8 rounded-2xl border border-orange-200 shadow-sm">
+                            <p class="text-gray-500 text-2xl mb-4 font-bold">(1)</p>
+                            
+                            <div class="flex items-start gap-4 mb-4">
+                                <div class="font-bold text-[#c2410c] text-3xl whitespace-nowrap w-12 text-right">A:</div>
+                                <div>
+                                    <p class="text-3xl font-bold text-[#9a3412]">Dà Lín, nǐ máng ma?</p>
+                                    <p class="text-gray-500 text-xl mt-1">Da Lin, are you busy?</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 mb-4">
+                                <div class="font-bold text-[#c2410c] text-3xl whitespace-nowrap w-12 text-right">B:</div>
+                                <div>
+                                    <p class="text-3xl font-bold text-[#9a3412] flex items-baseline">
+                                        <span class="exercise-blank" onclick="revealAnswer(this, 'Wǒ bù máng.')">________________</span> Nǐ ne?
+                                    </p>
+                                    <p class="text-gray-500 text-xl mt-1">I'm not busy. And you?</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="font-bold text-[#c2410c] text-3xl whitespace-nowrap w-12 text-right">A:</div>
+                                <div>
+                                    <p class="text-3xl font-bold text-[#9a3412] flex items-baseline">
+                                        <span class="exercise-blank" onclick="revealAnswer(this, 'Wǒ yě bù máng.')">________________</span>
+                                    </p>
+                                    <p class="text-gray-500 text-xl mt-1">I'm not busy either.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="bg-black/30 p-6 rounded-xl text-center space-y-3 mt-4">
-                            <p class="text-3xl font-extrabold text-orange-200">Subject + yào + Object</p>
-                            <p class="text-2xl text-gray-200">Wǒ yào kāfēi. / Wǒ bú yào kělè.</p>
+
+                        <!-- Dialogue (2) -->
+                        <div class="bg-orange-50 p-8 rounded-2xl border border-orange-200 shadow-sm">
+                            <p class="text-gray-500 text-2xl mb-4 font-bold">(2)</p>
+                            
+                            <div class="flex items-start gap-4 mb-4">
+                                <div class="font-bold text-[#c2410c] text-3xl whitespace-nowrap w-12 text-right">A:</div>
+                                <div>
+                                    <p class="text-3xl font-bold text-[#9a3412]">Nǐ bàba、māma hǎo ma?</p>
+                                    <p class="text-gray-500 text-xl mt-1">How are your dad and mom?</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 mb-4">
+                                <div class="font-bold text-[#c2410c] text-3xl whitespace-nowrap w-12 text-right">B:</div>
+                                <div>
+                                    <p class="text-3xl font-bold text-[#9a3412] flex items-baseline">
+                                        <span class="exercise-blank" onclick="revealAnswer(this, 'Tāmen dōu hěn hǎo.')">________________</span> Nǐ gēge ne?
+                                    </p>
+                                    <p class="text-gray-500 text-xl mt-1">They are both fine. And your elder brother?</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="font-bold text-[#c2410c] text-3xl whitespace-nowrap w-12 text-right">A:</div>
+                                <div>
+                                    <p class="text-3xl font-bold text-[#9a3412] flex items-baseline">
+                                        <span class="exercise-blank" onclick="revealAnswer(this, 'Tā yě hěn hǎo.')">________________</span>
+                                    </p>
+                                    <p class="text-gray-500 text-xl mt-1">He is fine too.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Dialogue (3) -->
+                        <div class="bg-orange-50 p-8 rounded-2xl border border-orange-200 shadow-sm">
+                            <p class="text-gray-500 text-2xl mb-4 font-bold">(3)</p>
+                            
+                            <div class="flex items-start gap-4 mb-4">
+                                <div class="font-bold text-[#c2410c] text-3xl whitespace-nowrap w-12 text-right">A:</div>
+                                <div>
+                                    <p class="text-3xl font-bold text-[#9a3412]">Nǐ dìdi hǎo ma?</p>
+                                    <p class="text-gray-500 text-xl mt-1">How is your younger brother?</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 mb-4">
+                                <div class="font-bold text-[#c2410c] text-3xl whitespace-nowrap w-12 text-right">B:</div>
+                                <div>
+                                    <p class="text-3xl font-bold text-[#9a3412] flex items-baseline">
+                                        <span class="exercise-blank" onclick="revealAnswer(this, 'Tā hěn hǎo.')">________________</span> Nǐ nǚ péngyou ne?
+                                    </p>
+                                    <p class="text-gray-500 text-xl mt-1">He is fine. And your girlfriend?</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="font-bold text-[#c2410c] text-3xl whitespace-nowrap w-12 text-right">A:</div>
+                                <div>
+                                    <p class="text-3xl font-bold text-[#9a3412] flex items-baseline">
+                                        <span class="exercise-blank" onclick="revealAnswer(this, 'Tā yě hěn hǎo.')">________________</span>
+                                    </p>
+                                    <p class="text-gray-500 text-xl mt-1">She is fine too.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exercise Part 2: Asking what someone wants -->
+                <div class="bg-white p-10 rounded-[32px] shadow-xl border-t-[10px] border-[#c2410c]">
+                    <div class="flex justify-between items-center mb-6 border-b-2 border-orange-100 pb-4">
+                        <h3 class="text-4xl font-extrabold text-[#9a3412]">(èr) Asking what someone wants</h3>
+                        <span class="bg-[#fff7ed] text-[#ea580c] px-4 py-2 rounded-xl text-xl font-bold border border-orange-200">Pg 21</span>
+                    </div>
+
+                    <!-- 1. Complete dialogues -->
+                    <div class="mb-10">
+                        <p class="text-3xl font-extrabold text-[#713f12] mb-6">1. Complete the following dialogues (Pg 21)</p>
+                        <div class="space-y-8">
+                            <!-- Dialogue (1) -->
+                            <div class="bg-orange-50 p-8 rounded-2xl border border-orange-200 shadow-sm">
+                                <p class="text-gray-500 text-2xl mb-4 font-bold">(1)</p>
+                                <div class="flex items-start gap-4 mb-3">
+                                    <div class="font-bold text-[#c2410c] text-3xl whitespace-nowrap w-12 text-right">A:</div>
+                                    <div>
+                                        <p class="text-3xl font-bold text-[#9a3412]">Nín yào kāfēi ma?</p>
+                                        <p class="text-gray-500 text-xl mt-1">Would you like some coffee?</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4 mb-3">
+                                    <div class="font-bold text-[#c2410c] text-3xl whitespace-nowrap w-12 text-right">B:</div>
+                                    <div>
+                                        <p class="text-3xl font-bold text-[#9a3412]">Wǒ yào kāfēi.</p>
+                                        <p class="text-gray-500 text-xl mt-1">I want coffee.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4 mb-3">
+                                    <div class="font-bold text-[#c2410c] text-3xl whitespace-nowrap w-12 text-right">A:</div>
+                                    <div>
+                                        <p class="text-3xl font-bold text-[#9a3412]">Nǐ ne?</p>
+                                        <p class="text-gray-500 text-xl mt-1">And you?</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="font-bold text-[#c2410c] text-3xl whitespace-nowrap w-12 text-right">C:</div>
+                                    <div>
+                                        <p class="text-3xl font-bold text-[#9a3412] flex items-baseline">
+                                            <span class="exercise-blank" onclick="revealAnswer(this, 'Wǒ bú yào kāfēi.')">________________</span>
+                                        </p>
+                                        <p class="text-gray-500 text-xl mt-1">No, I don't want coffee.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Dialogue (2) -->
+                            <div class="bg-orange-50 p-8 rounded-2xl border border-orange-200 shadow-sm">
+                                <p class="text-gray-500 text-2xl mb-4 font-bold">(2)</p>
+                                <div class="flex items-start gap-4 mb-3">
+                                    <div class="font-bold text-[#c2410c] text-3xl whitespace-nowrap w-12 text-right">A:</div>
+                                    <div>
+                                        <p class="text-3xl font-bold text-[#9a3412]">Nǐ yào kělè (coke) ma?</p>
+                                        <p class="text-gray-500 text-xl mt-1">Would you like coke?</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4 mb-3">
+                                    <div class="font-bold text-[#c2410c] text-3xl whitespace-nowrap w-12 text-right">B:</div>
+                                    <div>
+                                        <p class="text-3xl font-bold text-[#9a3412] flex items-baseline">
+                                            <span class="exercise-blank" onclick="revealAnswer(this, 'Wǒ bú yào kělè.')">________________</span>
+                                        </p>
+                                        <p class="text-gray-500 text-xl mt-1">I don't want coke.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4 mb-3">
+                                    <div class="font-bold text-[#c2410c] text-3xl whitespace-nowrap w-12 text-right">A:</div>
+                                    <div>
+                                        <p class="text-3xl font-bold text-[#9a3412]">Nǐ ne?</p>
+                                        <p class="text-gray-500 text-xl mt-1">And you?</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="font-bold text-[#c2410c] text-3xl whitespace-nowrap w-12 text-right">C:</div>
+                                    <div>
+                                        <p class="text-3xl font-bold text-[#9a3412] flex items-baseline">
+                                            <span class="exercise-blank" onclick="revealAnswer(this, 'Wǒ yě bú yào kělè.')">________________</span>
+                                        </p>
+                                        <p class="text-gray-500 text-xl mt-1">I don't want coke either.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="bg-white/10 p-8 rounded-2xl border border-white/20 shadow-md">
-                        <h3 class="text-4xl font-extrabold mb-6 text-[#ffedd5] text-center">🎵 Essential Tone Change Rules</h3>
-                        <div class="bg-black/30 p-6 rounded-xl text-center space-y-3">
-                            <p class="text-3xl font-extrabold text-yellow-300">Tone of "bù"</p>
-                            <p class="text-2xl text-gray-200"><span class="text-yellow-300 font-bold">bù máng</span> (4th tone before 2nd tone)</p>
-                            <p class="text-2xl text-gray-200"><span class="text-yellow-300 font-bold">bú yào</span> (changes to 2nd tone before 4th tone!)</p>
+                    <!-- 2. Make dialogues based on pictures -->
+                    <div>
+                        <p class="text-3xl font-extrabold text-[#713f12] mb-6">2. Make dialogues based on the pictures (Pg 21)</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <!-- Picture 1 (Offering coke / coffee) -->
+                            <div class="bg-orange-50 p-8 rounded-2xl border border-orange-200 shadow-sm flex flex-col justify-between">
+                                <p class="text-gray-500 text-2xl mb-4 font-bold">Picture 1 (Waiter offering drinks)</p>
+                                <div class="space-y-4">
+                                    <div class="flex items-start gap-4">
+                                        <div class="font-bold text-[#c2410c] text-3xl whitespace-nowrap w-12 text-right">A:</div>
+                                        <div>
+                                            <p class="text-3xl font-bold text-[#9a3412] flex items-baseline">
+                                                <span class="exercise-blank" onclick="revealAnswer(this, 'Nǐ yào kělè ma?')">________________</span>
+                                            </p>
+                                            <p class="text-gray-500 text-xl mt-1">Would you like a coke?</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-4">
+                                        <div class="font-bold text-[#c2410c] text-3xl whitespace-nowrap w-12 text-right">B:</div>
+                                        <div>
+                                            <p class="text-3xl font-bold text-[#9a3412] flex items-baseline">
+                                                <span class="exercise-blank" onclick="revealAnswer(this, 'Bù, wǒ yào kāfēi.')">________________</span>
+                                            </p>
+                                            <p class="text-gray-500 text-xl mt-1">No, I want coffee.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Picture 2 (Asking menu choice) -->
+                            <div class="bg-orange-50 p-8 rounded-2xl border border-orange-200 shadow-sm flex flex-col justify-between">
+                                <p class="text-gray-500 text-2xl mb-4 font-bold">Picture 2 (Ordering choice)</p>
+                                <div class="space-y-4">
+                                    <div class="flex items-start gap-4">
+                                        <div class="font-bold text-[#c2410c] text-3xl whitespace-nowrap w-12 text-right">A:</div>
+                                        <div>
+                                            <p class="text-3xl font-bold text-[#9a3412] flex items-baseline">
+                                                <span class="exercise-blank" onclick="revealAnswer(this, 'Nǐ yào shénme?')">________________</span>
+                                            </p>
+                                            <p class="text-gray-500 text-xl mt-1">What would you like?</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-4">
+                                        <div class="font-bold text-[#c2410c] text-3xl whitespace-nowrap w-12 text-right">B:</div>
+                                        <div>
+                                            <p class="text-3xl font-bold text-[#9a3412] flex items-baseline">
+                                                <span class="exercise-blank" onclick="revealAnswer(this, 'Wǒ yào kělè.')">________________</span>
+                                            </p>
+                                            <p class="text-gray-500 text-xl mt-1">I want coke.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 8. BREAK -->
+        <!-- 8. WRAP-UP (Interactive Key Sentences from Pg 20, Matching Lesson 3 Style) -->
+        <section id="wrap-up" class="page-section pb-16">
+            <div class="bg-[#9a3412] rounded-[32px] p-12 shadow-xl text-white border-6 border-[#7c2d12]">
+                <h2 class="text-6xl font-extrabold mb-12 text-center tracking-wide text-[#ffedd5]">Wrap-up</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                    
+                    <!-- Left Column: Key Sentences from Pg 20 -->
+                    <div class="bg-white/10 p-8 rounded-3xl border border-white/30 shadow-lg">
+                        <h3 class="text-4xl font-extrabold mb-8 text-[#ffedd5] text-center border-b-2 border-white/20 pb-4">Key Sentences <span class="text-2xl font-normal">(Pg 20)</span></h3>
+                        
+                        <p class="text-center text-xl text-orange-200 mb-6 italic">Click on any sentence to reveal its English translation!</p>
+
+                        <div class="space-y-4">
+                            <!-- Sentence 1 -->
+                            <div class="key-sentence-box bg-black/30 p-4 rounded-xl border border-orange-400/30 text-center" onclick="toggleKeySentence(this)">
+                                <p class="text-3xl font-bold text-white tracking-wide">1. Tāmen dōu hěn hǎo.</p>
+                                <p class="key-eng">They are all (both) fine.</p>
+                            </div>
+                            <!-- Sentence 2 -->
+                            <div class="key-sentence-box bg-black/30 p-4 rounded-xl border border-orange-400/30 text-center" onclick="toggleKeySentence(this)">
+                                <p class="text-3xl font-bold text-white tracking-wide">2. Nǐ máng ma?</p>
+                                <p class="key-eng">Are you busy?</p>
+                            </div>
+                            <!-- Sentence 3 -->
+                            <div class="key-sentence-box bg-black/30 p-4 rounded-xl border border-orange-400/30 text-center" onclick="toggleKeySentence(this)">
+                                <p class="text-3xl font-bold text-white tracking-wide">3. Wǒ bù máng.</p>
+                                <p class="key-eng">I'm not busy.</p>
+                            </div>
+                            <!-- Sentence 4 -->
+                            <div class="key-sentence-box bg-black/30 p-4 rounded-xl border border-orange-400/30 text-center" onclick="toggleKeySentence(this)">
+                                <p class="text-3xl font-bold text-white tracking-wide">4. Nǐ yào kāfēi ma?</p>
+                                <p class="key-eng">Do you want some coffee?</p>
+                            </div>
+                            <!-- Sentence 5 -->
+                            <div class="key-sentence-box bg-black/30 p-4 rounded-xl border border-orange-400/30 text-center" onclick="toggleKeySentence(this)">
+                                <p class="text-3xl font-bold text-white tracking-wide">5. Wǒ yào kāfēi.</p>
+                                <p class="key-eng">I want coffee.</p>
+                            </div>
+                            <!-- Sentence 6 -->
+                            <div class="key-sentence-box bg-black/30 p-4 rounded-xl border border-orange-400/30 text-center" onclick="toggleKeySentence(this)">
+                                <p class="text-3xl font-bold text-white tracking-wide">6. Wǒmen dōu hē kāfēi.</p>
+                                <p class="key-eng">We all drink coffee.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Core Grammar & Tone Rules Summary -->
+                    <div class="bg-white/10 p-8 rounded-3xl border border-white/30 shadow-lg flex flex-col justify-start">
+                        <h3 class="text-4xl font-extrabold mb-8 text-[#ffedd5] text-center border-b-2 border-white/20 pb-4">Core Grammar Summary</h3>
+                        
+                        <div class="space-y-6">
+                            <!-- Adjectival Predicate -->
+                            <div class="bg-black/30 p-5 rounded-2xl border border-orange-400/30">
+                                <p class="text-3xl font-extrabold text-[#fed7aa] mb-2">🧱 Adjectival Predicate (S + adv + A)</p>
+                                <p class="text-2xl text-white font-bold">Wǒ bù máng. / Tāmen dōu hěn hǎo.</p>
+                                <p class="text-xl text-orange-200 mt-1">Adjectives act directly as predicates! Adverbs (hěn, yě, dōu, bù) must go directly before the adjective.</p>
+                            </div>
+
+                            <!-- Desires & Wants -->
+                            <div class="bg-black/30 p-5 rounded-2xl border border-orange-400/30">
+                                <p class="text-3xl font-extrabold text-[#fed7aa] mb-2">🥤 Asking & Expressing Wants (yào)</p>
+                                <p class="text-2xl text-white font-bold">Q: Nǐ yào kāfēi ma?</p>
+                                <p class="text-xl text-orange-200 mt-1">A: <span class="text-green-300 font-bold">Yào.</span> / Wǒ yào kāfēi. ➔ Positive</p>
+                                <p class="text-xl text-orange-200 mt-1">A: <span class="text-red-300 font-bold">Bú yào.</span> / Wǒ bú yào kāfēi. ➔ Negative</p>
+                            </div>
+                            
+                            <!-- Tone Sandhi of bù -->
+                            <div class="bg-black/30 p-5 rounded-2xl border border-orange-400/30">
+                                <p class="text-3xl font-extrabold text-[#fed7aa] mb-2">⚠️ Tone Sandhi of "bù"</p>
+                                <p class="text-2xl text-white font-bold"><span class="text-yellow-300">bù máng</span> vs <span class="text-yellow-300">bú yào</span></p>
+                                <p class="text-xl text-orange-200 mt-1">"bù" changes from 4th tone to 2nd tone (<b class="text-yellow-300">bú</b>) before another 4th tone syllable.</p>
+                            </div>
+
+                            <!-- Neutral Tone -->
+                            <div class="bg-black/30 p-5 rounded-2xl border border-orange-400/30">
+                                <p class="text-3xl font-extrabold text-[#fed7aa] mb-2">🎵 Neutral Tone</p>
+                                <p class="text-xl text-orange-200">Particles (<span class="text-white font-bold">ma, ne</span>), plural suffix (<span class="text-white font-bold">men</span>), and reduplicated kinship terms (<span class="text-white font-bold">bàba, māma, gēge, dìdi</span>) are soft & short.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. BREAK -->
         <section id="break" class="page-section pb-16">
             <div class="bg-white rounded-[32px] p-16 shadow-xl text-center border-t-[12px] border-[#ea580c]">
                 <h2 class="text-6xl font-extrabold text-[#9a3412] mb-6">☕ Class Break</h2>
@@ -900,7 +1261,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Text Expand / Collapse Toggle
+        // Text Expand / Collapse Toggle for Text 1 & Text 2
         function toggleText(element) {
             const englishLine = element.querySelector('.english-line');
             const pinyinContainer = element.querySelector('.pinyin-reveal-container');
@@ -917,6 +1278,19 @@
                 englishLine.classList.add('expanded');
                 icon.textContent = '▲';
             }
+        }
+
+        // Exercise Blank Reveal
+        function revealAnswer(element, answer) {
+            if (!element.classList.contains('revealed')) {
+                element.innerText = answer;
+                element.classList.add('revealed');
+            }
+        }
+
+        // Wrap Up Key Sentence Reveal Toggle
+        function toggleKeySentence(element) {
+            element.classList.toggle('active');
         }
     </script>
 </body>
